@@ -1,0 +1,87 @@
+# ============================================================================
+# Project Minecraft — Voxel Engine
+# Full Requirements
+# ============================================================================
+# Install all:        pip install -r requirements.txt
+# Install core only:  pip install -r requirements.txt --extra-index-url ""
+# ============================================================================
+
+
+# ── Windowing & Input ────────────────────────────────────────────────────────
+glfw>=2.5.0                     # GLFW Python bindings (window + input + OpenGL context)
+
+
+# ── OpenGL Rendering ─────────────────────────────────────────────────────────
+PyOpenGL>=3.1.7                 # Python OpenGL bindings (GL, GLU, GLUT)
+PyOpenGL_accelerate>=3.1.7      # C-level accelerators for PyOpenGL (significant speedup)
+
+
+# ── Image / Texture Loading ───────────────────────────────────────────────────
+Pillow>=10.0.0                  # PNG/JPG texture atlas loading (terrain.png)
+
+
+# ── 3D Audio ─────────────────────────────────────────────────────────────────
+# Requires OpenAL installed on the OS:
+#   Linux:   sudo apt install libopenal-dev
+#   macOS:   brew install openal-soft
+#   Windows: OpenAL redistributable from openal.org
+PyOpenAL>=0.8.0                 # Python OpenAL bindings for positional 3D audio
+
+
+# ── Performance (optional but recommended) ───────────────────────────────────
+numpy>=1.24.0                   # Vectorized noise generation (10–50x faster chunk gen)
+# numba>=0.57.0                 # JIT compilation for inner loops (advanced; optional)
+
+
+# ── Networking (multiplayer / headless server) ───────────────────────────────
+# socket, threading, struct, gzip — all stdlib, no extra packages needed
+
+
+# ── Serialization ─────────────────────────────────────────────────────────────
+# json, gzip, struct — stdlib, no extra packages needed
+# Optional: faster serialization for production servers
+# msgpack>=1.0.5                # Binary serialization (replaces JSON in server protocol)
+# lz4>=4.3.2                   # Fast compression for chunk save files (replaces gzip)
+
+
+# ── Development & Testing ────────────────────────────────────────────────────
+pytest>=7.4.0                   # Test runner
+pytest-cov>=4.1.0               # Coverage reporting
+# pytest-benchmark>=4.0.0       # Performance benchmarks
+
+
+# ── Type Checking (dev only) ──────────────────────────────────────────────────
+# mypy>=1.5.0                   # Static type checker
+# types-Pillow>=10.0.0          # Pillow type stubs for mypy
+
+
+# ── Packaging (if distributing) ───────────────────────────────────────────────
+# pyinstaller>=6.0.0            # Bundle into standalone executable
+# cx_Freeze>=6.15.0             # Alternative bundler
+
+
+# ============================================================================
+# PLATFORM NOTES
+# ============================================================================
+#
+# macOS:
+#   brew install glfw openal-soft
+#   pip install -r requirements.txt
+#   Note: PyOpenGL on Apple Silicon may need:
+#     DYLD_LIBRARY_PATH=/opt/homebrew/lib pip install PyOpenGL
+#
+# Linux (Ubuntu/Debian):
+#   sudo apt install libglfw3-dev libopenal-dev libgl1-mesa-dev
+#   pip install -r requirements.txt
+#
+# Windows:
+#   glfw and PyOpenGL ship their own DLLs — no extra installs needed
+#   OpenAL: download redistributable from https://www.openal.org/downloads/
+#   pip install -r requirements.txt
+#
+# ============================================================================
+# STDLIB MODULES USED (no install needed)
+# ============================================================================
+# argparse, array, ctypes, dataclasses, gzip, json, math, os, queue,
+# random, socket, struct, sys, threading, time, typing
+# ============================================================================
